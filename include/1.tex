@@ -1,0 +1,16 @@
+% !TEX program = lualatex
+% !TEX spellcheck = en_GB
+% !TEX root = ../sets.tex
+
+\section{Introduction}
+
+In a platonic sense, somehow, there exist things called {\em classes}; but not all classes are at the same level: some are said {\em proper}, others are called {\em sets}. Yet, this is a set theory, not a class one, since our aim is to correctly manipulate sets. You are probably aware of {\em Russell's Antinomy}: Von Neumann, Bernays and G\"odel provided a solution\footnote{One among many others. You may have heard about Zermelo and Fraenkel (ZFC axioms) or Tarski and Gr\"othendieck (TG axioms).} to that important issue. Along these pages we deal with their standpoint and axioms.
+
+You certainly have an (at least vague) idea of what a set is; also, you should know that the smallest sensible formula is \(x \in X\), which stands for \q{\(x\) is a member of \(X\)} or \q{\(x\) is an element of \(X\)}. Here, NBG poses the very first difference between sets and proper classes: uniquely sets are allowed to be members of something, whilst proper classes cannot. That is, you can write \(x \in X\) when \(x\) is a name used for indicating a set; instead, classes which have something as element can be either sets or proper classes.
+
+We remark that from such standpoint {\em every object is a set}: things named {\em urelements}, objects are not made of elements, are not contemplated in these pages. There is nothing of strange: for instance, a population of a city is the collection of its inhabitants, every person is an aggregate of cells, cells are made of molecules, molecules are composed of atoms, et cetera\dots{}
+
+Another crucial difference pertains language: we want to quantify, that is use \(\forall\) and \(\exists\), uniquely on sets not on proper classes. When we write
+\[\forall x : p(x) \quad\text{or}\quad \exists x : p(x),\]
+for some predicate \(p\), the symbol \(x\) is used for sets, not on proper  classes. Why this? Do not we want to quantify over proper classes too? First of all, as we said, this is a set theory. Secondly, in some sense, quantifying over things requires you to have in mind an environment where those things live: if such things are classes, you need something can gather classes (in particular also proper classes), which NBG does not support. You may want to introduce \q{collections of classes}, and then? You will recursively need a \q{collections of collections of classes}, et cetera\dots{} So where do advantages lie? In general, in this axiomatization we also have {\em schemas}, which can be intended as \q{sentences on demand}: if a symbol denotes a proper class or a class you do not know whether it is a set or a proper class, whenever you replace it with the name of a class you generate a sentence telling you something about that class. Hence a schema is not a single sentence, but many sentences in one.
+

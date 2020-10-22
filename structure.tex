@@ -1,0 +1,36 @@
+% !TEX program = lualatex
+% !TEX root = ./sets.tex
+
+\documentclass[a4paper,12pt]{amsart}
+
+\usepackage[no-math]{fontspec}
+	\setmainfont{Linux Libertine O}
+
+\usepackage{polyglossia}
+	\setmainlanguage[variant=uk]{english}
+
+\usepackage[english=british]{csquotes}
+\newcommand\q\enquote
+
+\usepackage{indentfirst}
+
+\usepackage{microtype}
+
+\usepackage{hyperref}
+\hypersetup{breaklinks,hidelinks,linktoc=all}
+\newcommand\mail[1]{\href{mailto:#1}{{\ttfamily #1}}}
+
+%%% MATHEMATICS
+\usepackage{libertinust1math,MnSymbol,mathtools,extarrows}
+\usepackage[bb=ams,cal=cm]{mathalfa}
+
+\usepackage{amsthm}
+\newtheoremstyle{myst}{}{}{}{}{\scshape}{.}{.5em}{}
+\theoremstyle{myst}
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{note}{Note}[section]
+\newtheorem{exercise}{Exercise}[section]

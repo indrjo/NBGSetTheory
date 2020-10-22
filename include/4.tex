@@ -1,0 +1,49 @@
+% !TEX program = lualatex
+% !TEX root = ../sets.tex
+% !TEX spellcheck = en_GB
+
+\section{Cartesian Product and Functions}
+
+Given two elements \(x\) and \(y\), we know the class \(\set{\set{x}, \set{x, y}}\) is a set.
+
+\begin{definition}[Ordered pairs]
+Given two objects \(x\) and \(y\), the object 
+\[(x, y) \coloneq \set{\set{x}, \set{x, y}}\]
+is an {\em ordered pair}. 
+\end{definition}
+
+\begin{exercise}
+This exercise explains why \q{ordered} pair. Demonstrate
+\[\forall a, b, c, d : (a, b) = (c, d) \lrarr a = c \text{ and } b = d .\]
+\end{exercise}
+
+\begin{definition}[Product of classes]
+Let \(A\) and \(B\) be two classes. The {\em product} of \(A\) and \(B\) is the class
+\[A \times B \coloneq \set{z \mid \exists a \in A, b \in B : z = (a, b)}.\]
+\end{definition}
+
+\begin{theorem}
+The product of two sets is a set.
+\end{theorem}
+
+\begin{proof}
+It is straightforward, once you notice \(A \times B \subseteq \wp(\wp (A \cup B))\). If \(A\) and \(B\) are sets, so is \(A \cup B\), because of axiom~\ref{axiom:UnionSet}; using twice axiom~\ref{axiom:PowerSet}, also \(\wp(\wp (A \cup B))\) is a set; by axiom~\ref{axiom:Comprehension}, we conclude \(A \times B\) is a set.
+\end{proof}
+
+%\begin{definition}[Relations]
+%For \(X\) and \(Y\) classes, a {\em relation} from \(X\) to \(Y\) is any of the subclasses of \(X \times Y\).
+%\end{definition}
+
+\begin{definition}[Functions]
+Given two classes \(X\) and \(Y\), a {\em function} from \(X\) to \(Y\) is a subclass \(f \subseteq X \times Y\) such that% for every \(x \in X\) exists one and only one \(y \in Y\) such that \((x, y) \in f\).
+\[\forall x \in X \exists! y \in Y : (x, y) \in f\,.\]
+Usually, one writes \(f : X \to Y\) to tell \(f\) is a function from \(X\) to \(Y\) and \(f(x) = y\) instead of \((x, y) \in f\). The classes \(X\) and \(Y\) are the {\em domain} and the {\em codomain} of \(f\), respectively. For \(A \subseteq X\) the {\em image} of \(A\) via \(f\) is the class
+\[fA \coloneq \set{y \in Y \mid \exists x \in A : f(x) = y}\]
+and for \(B \subseteq Y\) the class
+\[f^{-1}B \coloneq \set{x \in X \mid f(x) \in B}.\]
+is the {\em preimage} of \(B\) via \(f\).
+\end{definition}
+
+\begin{axiom}[Replacement axiom]\label{axiom:Replacement}
+Let \(X\) and \(Y\) be classes and \(f : X \to Y\). If \(X\) is a set, then also \(fX\) is a set.
+\end{axiom}

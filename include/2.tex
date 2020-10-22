@@ -1,0 +1,84 @@
+% !TEX program = lualatex
+% !TEX root = ../sets.tex
+% !TEX spellcheck = en_GB
+
+\section{General axioms about classes}
+
+The very first axiom makes clear what is the right notion of {\em equality} for classes: two classes are equal whenever have the same members. Let us formally express that concept.
+
+\begin{axiom}[Axiom of extensionality]\label{axiom:Extensionality}
+For \(A\) and \(B\) classes, we assume
+\[A = B \lrarr (\forall x : x \in A \lrarr x \in B)\]
+\end{axiom}
+
+The previous axiom is a schema. As you would expect, there are some basilar properties.
+
+\begin{theorem}
+A class in equal to itself. If a class \(A\) is equal to another class \(B\), then \(B\) equals \(A\). For \(A\), \(B\) and \(C\) classes, if \(A = B\) and \(B = C\), then \(A = C\).
+\end{theorem}
+
+\begin{proof}
+That is purely a question of Logic. \(\forall x : x \in A \lrarr x \in A\) is always true. If we have \(\forall x : x \in A \lrarr x \in B\), we have \(\forall x : x \in B \lrarr x \in A\) too. Finally, if \(\forall x : x \in A \lrarr x \in B\) and \(\forall x : x \in B \lrarr x \in C\), then \(\forall x : x \in A \lrarr x \in C\).
+\end{proof}
+
+Given two classes \(A\) and \(B\), we say \(A\) is {\em subclass} of \(B\) and write \(A \subseteq B\) whenever
+\[\forall x : x \in A \rarr x \in B.\]
+
+The following axiom allows us to build any class by providing a predicate.
+
+\begin{axiom}[Abstraction axiom]\label{axiom:Abstraction}
+Given a sensible predicate on sets \(p\), there exists the class, written as \(\set{x \mid p(x)}\), whose members are exactly the sets \(x\) for whom \(p(x)\) is true:
+\[\forall a : a \in \set{x \mid p(x)} \lrarr p(a).\]
+By saying \q{sensible predicate} we mean a predicate, built with syntactic rules of Logic, which makes sense for sets.
+\end{axiom}
+
+\begin{construction}[The empty class]\label{construction:EmptyClass}
+There exists the {\em empty class}
+\[\nil \coloneq \set{x \mid x \ne x}.\]
+The reason why that name is no element \(x\) is such that \(x \ne x\), so no \(x \in \nil\).\newline
+Let \(X\) be a class with the property \(\forall x : x \notin X\). Then we have \(\forall x : x \in X \rarr x \in \nil\), hence \(X \subseteq \nil\). In general, if \(X\) is a class, then \(\nil \subseteq X\) since \(\forall x : x \in \nil \rarr x \in X\) is true. So, we can conclude that \(X = \nil\).
+\end{construction}
+
+\begin{construction}[The class of all the sets]\label{construction:ClassOfAllSets}
+There exists the {\em class of all sets}: just pick the predicate \(x = x\) and you have the class
+\[\univ \coloneq \set{x \mid x = x}.\]
+Any class \(X\) is a subclass of \(\univ\): in fact, every \(x \in X\) satisfies \(x = x\), so \(x \in \univ\).
+\end{construction}
+
+\begin{theorem}\label{theorem:RussellClassIsProperClass}
+The {\em Russell class} \(\russell \coloneq \set{x \mid x \notin x}\) is a proper class.
+\end{theorem}
+
+\begin{proof}
+Assume \(\russell\) is a set instead. Hence, follows from how \(\russell\) is made, \(\russell \in \russell \lrarr \russell \notin \russell\), an absurd.
+\end{proof}
+
+Here we are how NBG resolves {\em Russell's Antinomy}!
+
+\begin{construction}[Operations with classes]
+You are likely aware you can perform some operations. Formally, they are allowed by the the axiom~\ref{axiom:Comprehension}: given two classes \(A\) and \(B\) we have the classes
+\begin{align*}
+& A \cup B \coloneq \set{x \mid x \in A \text{ or } x \in B} \\
+& A \cap B \coloneq \set{x \mid x \in A \text{ and } x \in B} \\
+& \neg A \coloneq \set{x \mid x \notin A} .
+\end{align*}
+once one chooses suitable predicates. 
+\end{construction}
+
+With the following axiom we dive into sets.
+
+\begin{axiom}[Comprehension axiom]\label{axiom:Comprehension}
+A subclass of a set is a set.
+\end{axiom}
+
+Imagine you have a class \(E\) you know it is a set and a predicate on elements: also the class
+\[\set{x \in E \mid p(x)} \coloneq \set{x \mid x \in E \text{ and } p(x)}\]
+is a set, because it is a subclass of the set \(E\).
+
+\begin{theorem}
+\(\univ\) is a proper class.
+\end{theorem}
+
+\begin{proof}
+Again, suppose \(\univ\) is a set. Since every class is a subclass of \(\univ\), also \(\russell\) is a set. Thus, because of the axiom~\ref{axiom:Comprehension}, \(\russell\) must be a set, which is not by theorem~\ref{theorem:RussellClassIsProperClass}.
+\end{proof}

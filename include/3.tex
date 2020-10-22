@@ -1,0 +1,47 @@
+% !TEX program = lualatex
+% !TEX root = ../sets.tex
+% !TEX spellcheck = en_GB
+
+\section{Empty, pair, union and power set}
+
+We already now there is the empty class (see construction~\ref{construction:EmptyClass}), but we actually want it to be a set.
+
+\begin{axiom}[Empty set]
+\(\nil\) is a set.
+\end{axiom}
+
+Now, we have the empty set, but we also want sets that are not empty.
+
+\begin{axiom}[Pair set]\label{axiom:PairSet}
+For every sets \(A\) and \(B\) the class \(\set{A, B}\) is a set.
+\end{axiom}
+
+A {\em singleton} is a class which has a unique element. The previous axiom also implies singletons are sets too:  if \(x\) is a set, so \(\set{x, x}\) is; usually one avoids repetitions and simply writes \(\set{x}\).
+
+%\begin{definition}
+%For \(X\) class, we have the class
+%\[\bigcup X \coloneq \set{A \mid \exists B \in X : A \in B}.\]
+%Sometimes, instead of \(\bigcup X\), we write \(\bigcup_{E \in X} E\).
+%\end{definition}
+
+\begin{axiom}[Union set]\label{axiom:UnionSet}
+For every set \(X\) the class %\(\bigcup X\)
+\[\bigcup X \coloneq \set{A \mid \exists B \in X : A \in B}\]
+is a set.
+\end{axiom}
+
+Sometimes, instead of \(\bigcup X\), we write \(\bigcup_{E \in X} E\).
+
+\begin{theorem}
+For every sets \(A\) and \(B\) the class \(A \cup B\) is a set.
+\end{theorem}
+
+\begin{proof}
+If \(A\) and \(B\) are sets, so \(\set{A, B}\) is by theorem~\ref{axiom:PairSet}. Finally, because of theorem~\ref{axiom:UnionSet}, \(A \cup B = \bigcup \set{A, B}\) is a set.
+\end{proof}
+
+\begin{axiom}[Power set]\label{axiom:PowerSet}
+For every set \(X\) the class
+\[\wp X \coloneq \set{E \mid E \subseteq X}\]
+is a set, which we call {\em power set}.
+\end{axiom}
